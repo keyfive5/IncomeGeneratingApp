@@ -38,6 +38,11 @@ async function owned(): Promise<boolean> {
   return list.some((p) => p.productId === PRO_SKU);
 }
 
+/** The store connection, retried if an earlier attempt failed (no signal at launch). */
+function connected() {
+  return started ?? purchaser.init(notify);
+}
+
 export const purchaser: Purchaser = {
   init(onPro) {
     notify = onPro;
@@ -50,7 +55,9 @@ export const purchaser: Purchaser = {
           pending.reject(isUserCancelledError(e) ? new CancelledError() : new Error(e.message || 'The purchase did not go through'));
           pending = null;
         });
-        if (await owned()) notify(true);
+        // an ownership check that fails must not undo a good connection, or a
+        // retry would register the listeners twice
+        if (await owned().catch(() => false)) notify(true);
       })().catch((e) => {
         started = null;
         throw e;
@@ -60,13 +67,14 @@ export const purchaser: Purchaser = {
   },
 
   async product(): Promise<ProProduct | null> {
-    await started;
+    await connected();
     const list = await fetchProducts({ skus: [PRO_SKU], type: 'in-app' });
     const p = (list ?? []).find((x) => x.id === PRO_SKU);
     return p ? { price: p.displayPrice, title: p.title } : null;
   },
 
-  buy() {
+  async buy() {
+    await connected();
     return new Promise<void>((resolve, reject) => {
       pending = { resolve, reject };
       requestPurchase({ request: { apple: { sku: PRO_SKU } }, type: 'in-app' }).catch((e: unknown) => {
@@ -78,7 +86,7 @@ export const purchaser: Purchaser = {
   },
 
   async restore() {
-    await started;
+    await connected();
     await restorePurchases();
     const found = await owned();
     if (found) notify(true);
