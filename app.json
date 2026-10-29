@@ -1,25 +1,57 @@
 {
   "expo": {
-    "name": "app-tmp",
-    "slug": "app-tmp",
+    "name": "Kerf",
+    "slug": "kerf-construction",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "scheme": "kerf",
+    "userInterfaceStyle": "automatic",
+    "backgroundColor": "#0F1113",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0F1113"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.hasanzafar.kerf",
+      "buildNumber": "1",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false,
+        "CFBundleDisplayName": "Kerf"
+      }
     },
     "android": {
+      "package": "com.hasanzafar.kerf",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
-      },
-      "predictiveBackGestureEnabled": false
+        "backgroundColor": "#0F1113",
+        "foregroundImage": "./assets/android-icon-foreground.png"
+      }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-iap",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "deploymentTarget": "16.4"
+          }
+        }
+      ]
+    ],
+    "owner": "keyfive",
+    "extra": {
+      "eas": {
+        "projectId": "7ba60f88-2c27-464a-b817-455f3ef0df36"
+      }
     }
   }
 }

@@ -39,3 +39,13 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+/android
+
+# credentials — never commit these
+.expotoken
+credentials/
+credentials.json
+
+# scratch
+.scratch/

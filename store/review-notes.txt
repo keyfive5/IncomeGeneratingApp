@@ -1,0 +1,21 @@
+Kerf is a construction calculator: tape-measure arithmetic in feet, inches and fractions, plus fifteen jobsite tools that turn measurements into cuts (stairs, rafters, stud layout marks, baluster spacing, crown molding saw angles, concrete and more).
+
+HOW TO SEE IT IN 30 SECONDS
+1. Calculator tab: press 5, ft, 7, in, 3, ⁄, 8, +, 2, ft, 1, 1, in, 5, ⁄, 1, 6, =. The result is 8' 6 11/16", with every other reading (inches, decimal feet, mm) underneath.
+2. Tools tab > Concrete (free): change Length to 20' and the cubic yards and bag counts update.
+3. Tools tab > Stairs (Pro): the tool opens with a worked example and a drawing. Tapping any field opens the Kerf Pro purchase sheet.
+
+IN-APP PURCHASE
+One non-consumable, com.hasanzafar.kerf.pro ("Kerf Pro"), unlocks the eleven Pro tools for good. It is not a subscription. The purchase sheet is reached from any Pro tool, the banner at the top of the Tools tab, or Settings > Unlock Kerf Pro. Restore Purchase is on the purchase sheet and in Settings. Free with no limits: the calculator, Concrete, Right Triangle & Square, and Slope & Grade.
+
+No account, no login, no ads. The app makes no network requests of its own; the only connection is StoreKit for the purchase.
+
+WHAT MAKES IT DIFFERENT
+- Its own expression engine for tape-measure arithmetic that tracks dimension: length × length is square feet, × a thickness is cubic yards, length ÷ length is a count. Results are rounded to 1/8–1/64" and marked "strong" or "scant" the way carpenters read a tape.
+- Tools give the marks to pull, not just a total: every stud layout mark from the end of the plate, every baluster edge from the post, framing square settings for a stair stringer, and compound miter and bevel for crown at any spring angle and corner.
+- Code and comfort checks: IRC riser and tread limits, the 4" sphere rule for guards, minimum drain slope.
+- 220 automated tests check the engine and every tool against hand-worked jobsite numbers.
+
+This is the developer's own product and concept, built from scratch; it shares no code or concept with the account's other apps (notes, QR codes, currency, timers, dice/coin).
+
+Contact: hzafar300@gmail.com
