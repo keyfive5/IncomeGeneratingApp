@@ -53,6 +53,14 @@ node scripts/asc-availability.mjs
 ```
 
 ```bash
+node scripts/asc-exclude-eu.mjs
+```
+
+The account has no DSA trader declaration, so the 27 EU storefronts are
+switched off for the app and the in-app purchase (148 storefronts remain).
+Declaring as a trader would publish a home address on EU product pages.
+
+```bash
 npm run screenshots && node scripts/asc-screenshots.mjs
 ```
 
